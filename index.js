@@ -7,8 +7,8 @@ let app = express()
 let PORT = process.env.PORT || 3000
 app.use(cors(
     {
-        origin : ["https://crud-client-seven.vercel.app/"],
-        methods : ["GET","POST","DELETE"],
+        origin : ["https://crud-client-seven.vercel.app"],
+        methods : ["GET","POST","DELETE","PUT"],
         credentials : true
     }
 ))
