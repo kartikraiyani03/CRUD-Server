@@ -4,7 +4,14 @@ let cors = require('cors')
 let Collection = require('./models/CRUDModel')
 
 let app = express()
-app.use(cors())
+let PORT = process.env.PORT || 3000
+app.use(cors(
+    {
+        origin : ["https://crud-client-seven.vercel.app/"],
+        methods : ["GET","POST","DELETE"],
+        credentials : true
+    }
+))
 app.use(express.json())
 
 mg.connect("mongodb+srv://raiyanikartik43:V8tAD3mp2CUvfQpR@cluster0.qtkgf0x.mongodb.net/MERN")
@@ -51,7 +58,7 @@ app.post('/create',(req,res) =>
 })
 
 
-app.listen('3000',() =>
+app.listen(PORT,() =>
 {
     console.log("Server Running")
 })
